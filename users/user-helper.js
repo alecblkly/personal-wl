@@ -1,3 +1,7 @@
+module.exports = {
+   validateUser,
+};
+
 function validateUser(user) {
    let errors = [];
 

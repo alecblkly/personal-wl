@@ -6,6 +6,8 @@ const session = require('express-session');
 const knexStorage = require('connect-session-knex')(session);
 const knexConnection = require('../data/dbConfig.js');
 
+const authRouter = require('../auth/auth-router');
+
 const server = express();
 
 const sessionConfig = {
@@ -31,6 +33,8 @@ server.use(helmet());
 server.use(express.json());
 server.use(cors());
 server.use(session(sessionConfig));
+
+server.use('/', authRouter);
 
 server.get('/', (req, res) => {
    res.send('Server is currently running.');
