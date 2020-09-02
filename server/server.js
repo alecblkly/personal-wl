@@ -32,4 +32,8 @@ server.use(express.json());
 server.use(cors());
 server.use(session(sessionConfig));
 
+server.get('/', (req, res) => {
+   res.send('Server is currently running.');
+});
+
 module.exports = server;
