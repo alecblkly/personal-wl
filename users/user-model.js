@@ -2,12 +2,17 @@ const db = require('../data/dbConfig');
 
 module.exports = {
    find,
+   findByUser,
    findById,
    add,
 };
 
 function find() {
    return db('users').select('id', 'username');
+}
+
+function findByUser(user) {
+   return db('users').select('id', 'username', 'password').where(user);
 }
 
 function findById(id) {
